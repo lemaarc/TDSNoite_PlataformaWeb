@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head th:replace="~{base :: head('Gestime')}"></head>
+	
+	<body onload="onLoad()" class="imagemHome">
+		<div class="container-fluid">
+				<!--  *******************  TOPO  *******************  -->
+			<div th:replace="~{base :: topo}"></div>
+				<!--  *******************  MENU  *******************  -->
+			<div class="row">
+				<div th:replace="~{base :: menu}"></div>
+				<!--  *******************  LISTA  *******************  -->
+				<div class="col-8" id="atividades">
+					<div class="lista" v-for="atividade in atividades">
+						<div class="card-header listaTit alert-primary" >{{atividade.titulo}}</div>
+						<div class="container">	
+							<div class="row row-cols-4">
+								<div class="col listaTitulo">Gerente:</div>
+								<div class="col text-primary">{{atividade.gerencia}}</div>
+								<div class="col listaTitulo">Coordenador:</div>
+								<div class="col text-primary">{{atividade.coordenador}}</div><br/>
+								<div class="col listaTitulo">SLA:</div>
+								<div class="col text-primary">{{atividade.sla}}</div>
+								<div class="col listaTitulo">Status:</div>
+								<div class="col text-primary">{{atividade.status}}</div>
+							</div>
+							<div class="row row-cols-2">
+								<div class="col-3 listaTitulo">Descrição: </div>
+								<div class="col-9 text-primary">{{atividade.descricao}}</div>
+							</div>					
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	</body>
+</html>

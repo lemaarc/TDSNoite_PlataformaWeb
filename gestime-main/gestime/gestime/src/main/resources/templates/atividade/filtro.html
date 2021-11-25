@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head th:replace="~{base :: head('Gestime')}"></head>
+	
+	<body onload="onLoad()" class="imagemHome">
+		<div class="container-fluid">
+				<!--  *******************  TOPO  *******************  -->
+			<div th:replace="~{base :: topo}"></div>
+				<!--  *******************  MENU  *******************  -->
+			<div class="row">
+				<div th:replace="~{base :: menu}"></div>
+				<!--  *******************  LISTA  *******************  -->
+				<div class="col-8" id="atividades">
+					<div class="lista" th:each="atividade : ${atividades}">
+						<div class="card-header listaTit alert-primary" th:text="${atividade.titulo}" >Titulo da atividade</div>
+						<div class="container">	
+							<div class="row row-cols-4">
+								<div class="col listaTitulo">Gerente:</div>
+								<div class="col text-primary" th:text="${atividade.gerencia}">Area</div>
+								<div class="col listaTitulo">Coordenador:</div>
+								<div class="col text-primary"  th:text="${atividade.coordenador}">Coordenador</div><br/>
+								<div class="col listaTitulo">SLA:</div>
+								<div class="col text-primary"  th:text="${atividade.sla}">sla</div>
+								<div class="col listaTitulo">Status:</div>
+								<div class="col text-primary"  th:text="${atividade.status}">status</div>
+								<div class="col-4 listaTitulo">Descrição: </div>
+								<div class="col-8 text-primary"  th:text="${atividade.descricao}">descrição</div>
+							</div>					
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

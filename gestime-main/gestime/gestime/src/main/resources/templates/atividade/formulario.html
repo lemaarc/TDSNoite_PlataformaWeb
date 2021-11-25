@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head th:replace="~{base :: head('Gestime')}"></head>
+	
+	<body onload="onLoad()" class="imagemForm">
+		<div class="container-fluid">
+				<!--  *******************  TOPO  *******************  -->
+			<div th:replace="~{base :: topo}"></div>
+				<!--  *******************  FORMULÁRIO  *******************  -->
+			<div class="row">
+				<div class="col-12">
+					<div class="card">
+						<form th:object="${respAtividade}" class="card-body" th:action="@{/atividade/novo}" method="post">
+							
+							
+							<div class="mb-2">
+								<label for="titulo">Título da atividade:*</label>
+								<input th:field="*{titulo}" th:errorclass="is-invalid" class="form-control" placeholder="Digite o titulo da atividade" />
+								<div th:errors="*{titulo}" class="invalid-feedback">
+									Erros com o nome da atividade
+								</div>
+							</div>
+							
+							
+							<div class="mb-2">
+								<label for="gerencia">Gerencia:*</label>
+								<input th:field="*{gerencia}" th:errorclass="is-invalid" class="form-control" placeholder="Informe a área relacionada a atividade" />
+			
+								<div th:errors="*{gerencia}" class="invalid-feedback">
+									Erros com a gerencia da atividade
+								</div>
+							</div>
+							
+							
+							<div class="mb-2">
+								<label for="coordenador">Coordenador:*</label>
+								<input th:field="*{coordenador}" th:errorclass="is-invalid" class="form-control" placeholder="Informe o responsável" />
+		
+								<div th:errors="*{coordenador}" class="invalid-feedback">
+									Erros com o nome do coordenador
+								</div>
+							</div>
+							
+						
+							<div class="mb-2">
+								<label for="sla">SLA:*</label>
+								<input th:field="*{sla}" th:errorclass="is-invalid" class="form-control" placeholder="Informe o sla contratado" />
+		
+								<div th:errors="*{sla}" class="invalid-feedback">
+									Erros com o sla
+								</div>
+							</div>
+							
+							
+							<div class="mb-2">
+								<label for="descricao">Descrição:*</label>
+								<textarea class="form-control" th:errorclass="is-invalid" th:field="*{descricao}" placeholder="Adicione detalhes importantes da atividade" ></textarea>
+								
+								<div th:errors="*{descricao}" class="invalid-feedback">
+									Erros com a descrição
+								</div>
+							</div>
+							
+							<button class="btn btn-primary botao" type="submit">Cadastrar</button>
+							<button type="button" class="btn btn-outline-secondary botao" onclick="window.location.replace('http://localhost:8080/home')">Cancelar</button>
+						</form>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+	</body>
+</html>>

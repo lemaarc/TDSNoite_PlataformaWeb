@@ -1,0 +1,40 @@
+<head th:fragment="head(valor)">
+	<meta charset="UTF-8">
+	<title th:text="${valor}"></title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css2?family=Abel&display=swap" rel="stylesheet">
+	<link th:href="@{/css/index.css}" type="text/css" rel="stylesheet">
+	<script type="text/javascript" th:src="@{/js/actions.js}"></script>
+</head>
+
+<!--  *******************  TOPO  *******************  -->
+
+<div th:fragment="topo" class="row">
+	<nav class="navbar">
+		<div class="container-fluid">
+		    <div class="col-11">
+		    	<a th:href="@{/home}">
+		    		<img th:src="@{/imagem/Logo.png}" alt="Logo" width="8%" height="8%"/>
+				</a> 
+			</div>
+			<div class="col-1 logout">
+				<a onclick="document.querySelector('#form-login').submit()" href="#"><button type="button" class="btn btn-outline-primary sair">Logout</button></a>
+				<form id="form-login" th:action="@{/logout}" method="post"></form>
+ 				</div>
+		</div>
+	</nav>
+</div>
+
+<!--  *******************  MENU  *******************  -->
+
+<div th:fragment="menu" class="col-4 menu">
+	<nav class="nav flex-column">
+		<div class="navbar-light navMenu">Menu</div>
+	 	<a class="nav-link" href="/atividade/formulario"><button type="button" class="btn btn-outline-primary a">Novo</button></a>
+	 	<a class="nav-link" href="/home"><button type="button" th:classappend="${status} == null ? 'ativo'" class="btn btn-outline-primary a">Todos</button></a>
+	 	<a class="nav-link" href="/atividade/filtro/criado"><button type="button" th:classappend="${status} == criado ? 'ativo'" class="btn btn-outline-primary a">Criada</button></a>
+	  	<a class="nav-link" href="/atividade/filtro/andamento"><button type="button" th:classappend="${status} == andamento ? 'ativo'" class="btn btn-outline-primary a">Andamento</button></a>
+	  	<a class="nav-link" href="/atividade/filtro/finalizado"><button type="button" th:classappend="${status} == finalizado ? 'ativo'" class="btn btn-outline-primary a">Finalizada</button></a>
+	</nav>
+</div>
+

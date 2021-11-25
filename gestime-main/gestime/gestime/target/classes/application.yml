@@ -1,0 +1,9 @@
+
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: 415557603344-hbckgdfpual8v4ud39ohvmchqltgotuj.apps.googleusercontent.com # get a client-id from https://console.developers.google.com/
+            client-secret: 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 # get a client-secret from https://console.developers.google.com/
